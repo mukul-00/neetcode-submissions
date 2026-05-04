@@ -1,0 +1,17 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l = 0
+        h = len(nums) - 1
+
+        while l <= h:
+            mid = (h+l)//2
+            guess = nums[mid]
+
+            if(guess == target):
+                return mid
+            elif(guess > target):
+                h = mid - 1
+            else:
+                l = mid + 1
+            
+        return l
